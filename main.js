@@ -9,8 +9,33 @@ const constitutionInfo = {
     "소음인": "상체에 비해 하체가 발달하고 몸이 가냘픈 편입니다. 꼼꼼하고 내성적이며 예의가 바르지만, 소심하고 질투가 많을 수 있습니다."
 };
 
+// 테마 초기화 및 토글 로직
+function initTheme() {
+    const themeToggle = document.getElementById("theme-toggle");
+    const currentTheme = localStorage.getItem("theme");
+
+    if (currentTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        themeToggle.innerText = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            themeToggle.innerText = "☀️";
+        } else {
+            localStorage.setItem("theme", "light");
+            themeToggle.innerText = "🌙";
+        }
+    });
+}
+
 // 페이지 로드 시 모델 초기화
 async function initModel() {
+    initTheme();
+
     const loading = document.getElementById("loading");
     loading.classList.remove("hidden");
 
@@ -83,7 +108,7 @@ async function predict(imageElement) {
         }
     }
 
-    if (topPrediction.probability > 0.01) { // 파일 업로드 시에는 더 낮은 확률에서도 결과를 보여줍니다.
+    if (topPrediction.probability > 0.01) {
         const diagnosisBox = document.getElementById("diagnosis");
         diagnosisBox.classList.remove("hidden");
         document.getElementById("top-constitution").innerText = topPrediction.className;

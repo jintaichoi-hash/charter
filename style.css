@@ -2,15 +2,35 @@
     --primary-color: #4a90e2;
     --bg-color: #f5f7fa;
     --text-color: #333;
+    --header-text-color: #4a90e2;
+    --sub-text-color: #666;
     --card-bg: #ffffff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --border-radius: 12px;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --upload-bg: #f0f0f0;
+    --border-color: #ccc;
+    --diagnosis-bg: #eef6ff;
+    --progress-bg: #e0e0e0;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-text-color: #6fb1fc;
+    --sub-text-color: #aaa;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --upload-bg: #2a2a2a;
+    --border-color: #444;
+    --diagnosis-bg: #162a44;
+    --progress-bg: #333;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 body {
@@ -26,6 +46,31 @@ body {
     padding: 40px 20px;
 }
 
+.theme-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.theme-toggle {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--card-shadow);
+    color: var(--text-color);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
 header {
     text-align: center;
     margin-bottom: 40px;
@@ -33,12 +78,12 @@ header {
 
 header h1 {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--header-text-color);
     margin-bottom: 10px;
 }
 
 header p {
-    color: #666;
+    color: var(--sub-text-color);
     font-weight: 300;
 }
 
@@ -52,7 +97,7 @@ main {
     background-color: var(--card-bg);
     padding: 30px;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,13 +140,13 @@ main {
     width: 100%;
     max-width: 300px;
     min-height: 200px;
-    background-color: #f0f0f0;
+    background-color: var(--upload-bg);
     border-radius: var(--border-radius);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed #ccc;
+    border: 2px dashed var(--border-color);
 }
 
 #image-preview {
@@ -114,7 +159,7 @@ main {
 .results-card h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    color: #444;
+    color: var(--text-color);
 }
 
 #label-container {
@@ -136,7 +181,7 @@ main {
 .progress-bar {
     width: 100%;
     height: 10px;
-    background-color: #e0e0e0;
+    background-color: var(--progress-bg);
     border-radius: 5px;
     overflow: hidden;
 }
@@ -151,7 +196,7 @@ main {
 .diagnosis-box {
     margin-top: 30px;
     padding: 20px;
-    background-color: #eef6ff;
+    background-color: var(--diagnosis-bg);
     border-radius: var(--border-radius);
     border-left: 5px solid var(--primary-color);
     width: 100%;
@@ -160,7 +205,7 @@ main {
 .diagnosis-box h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: var(--primary-color);
+    color: var(--header-text-color);
 }
 
 .hidden {
@@ -170,7 +215,7 @@ main {
 footer {
     text-align: center;
     margin-top: 60px;
-    color: #999;
+    color: var(--sub-text-color);
     font-size: 0.85rem;
 }
 

@@ -1,14 +1,53 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 사상체질 판별기</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <header>
+            <h1>AI 사상체질 판별기</h1>
+            <p>인공지능을 통해 당신의 사상체질(태양인, 태음인, 소양인, 소음인)을 확인해보세요.</p>
+        </header>
+
+        <main>
+            <div class="card camera-card">
+                <div class="upload-container">
+                    <label for="image-upload" class="upload-label">
+                        <span class="upload-icon">📁</span>
+                        사진 업로드하기
+                    </label>
+                    <input type="file" id="image-upload" accept="image/*" class="hidden">
+                </div>
+                <div id="image-preview-container">
+                    <img id="image-preview" src="#" alt="미리보기" class="hidden">
+                </div>
+                <div id="loading" class="hidden">모델을 불러오는 중...</div>
+            </div>
+
+            <div class="card results-card">
+                <h2>분석 결과</h2>
+                <div id="label-container">
+                    <!-- Results will be injected here -->
+                </div>
+                <div id="diagnosis" class="diagnosis-box hidden">
+                    <h3>당신의 체질은 <span id="top-constitution">-</span> 입니다.</h3>
+                    <p id="constitution-desc"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 AI 사상체질 연구소. Teachable Machine 기반.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

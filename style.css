@@ -13,10 +13,24 @@
     --progress-bg: #e0e0e0;
 }
 
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-text-color: #6fb1fc;
+    --sub-text-color: #aaa;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --upload-bg: #2a2a2a;
+    --border-color: #444;
+    --diagnosis-bg: #162a44;
+    --progress-bg: #333;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 body {
@@ -30,6 +44,31 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 20px;
+}
+
+.theme-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.theme-toggle {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--card-shadow);
+    color: var(--text-color);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 header {

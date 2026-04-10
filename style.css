@@ -41,7 +41,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -67,10 +67,6 @@ body {
     color: var(--text-color);
 }
 
-.theme-toggle:hover {
-    transform: scale(1.1);
-}
-
 header {
     text-align: center;
     margin-bottom: 40px;
@@ -87,10 +83,17 @@ header p {
     font-weight: 300;
 }
 
+.disclaimer-header {
+    font-size: 0.85rem;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
 main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    margin-bottom: 50px;
 }
 
 .card {
@@ -98,13 +101,13 @@ main {
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
 }
 
 .camera-card {
-    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .upload-container {
@@ -123,17 +126,6 @@ main {
     font-weight: 500;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
-}
-
-.upload-label:hover {
-    background-color: #357abd;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
-}
-
-.upload-icon {
-    margin-right: 10px;
-    font-size: 1.2rem;
 }
 
 #image-preview-container {
@@ -160,10 +152,7 @@ main {
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: var(--text-color);
-}
-
-#label-container {
-    width: 100%;
+    text-align: center;
 }
 
 .prediction-item {
@@ -190,7 +179,6 @@ main {
     height: 100%;
     background-color: var(--primary-color);
     width: 0%;
-    transition: width 0.3s ease-out;
 }
 
 .diagnosis-box {
@@ -199,30 +187,98 @@ main {
     background-color: var(--diagnosis-bg);
     border-radius: var(--border-radius);
     border-left: 5px solid var(--primary-color);
-    width: 100%;
 }
 
-.diagnosis-box h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+/* Info Sections */
+.info-article {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.info-section h2 {
     color: var(--header-text-color);
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.info-section p {
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.constitution-detail {
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--upload-bg);
+    border-radius: 8px;
+}
+
+.constitution-detail h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.constitution-detail p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+#disqus_thread {
+    margin-bottom: 50px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--sub-text-color);
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--sub-text-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 .hidden {
     display: none;
 }
 
-.comments-section {
-    width: 100%;
-    margin-top: 40px;
-    padding: 30px;
+/* Policy Pages Layout */
+.policy-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
 }
 
-footer {
-    text-align: center;
-    margin-top: 60px;
-    color: var(--sub-text-color);
-    font-size: 0.85rem;
+.policy-content h1 {
+    margin-bottom: 30px;
+    color: var(--header-text-color);
+}
+
+.policy-content h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.policy-content p, .policy-content li {
+    margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
